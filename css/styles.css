@@ -375,7 +375,21 @@
     justify-self: end;
     font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--fg); opacity: 0.7;
+    display: flex; align-items: center; gap: 12px;
   }
+  .theme-toggle {
+    appearance: none; border: 1px solid var(--line-2); background: transparent;
+    color: var(--fg); width: 30px; height: 30px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: border-color .2s, color .2s, transform .2s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(20deg); }
+  .theme-toggle .icon-sun  { display: none; }
+  .theme-toggle .icon-moon { display: block; }
+  [data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+  [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+  [data-theme="dark"] .footer-icons img[alt="GitHub"] { filter: invert(1); }
 
   .wrap { max-width: 1480px; margin: 0 auto; padding: 0 36px; }
 
