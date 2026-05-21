@@ -412,7 +412,6 @@
   .hero-eyebrow {
     font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em;
     color: var(--fg-2); text-transform: uppercase; line-height: 1.7;
-    max-width: 320px;
   }
   .hero-eyebrow b { color: var(--accent); font-weight: 500; }
 
@@ -627,6 +626,7 @@
     transition: all .25s ease;
   }
   .stack-tags span:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .stack-tags a { text-decoration: none; display: inline-flex; }
 
   /* =========== WHO BENEFITS =========== */
   .bens {
@@ -691,6 +691,31 @@
     letter-spacing: -0.035em; margin: 0 0 32px; text-wrap: balance;
   }
   .about h2 em { font-style: italic; font-family: var(--serif); color: var(--accent); font-weight: 300; }
+  .bio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 580px;
+  }
+  .bio-list li {
+    font-family: var(--display);
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.45;
+    color: var(--fg-2);
+    padding-left: 18px;
+    position: relative;
+  }
+  .bio-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
   .about .bio {
     font-family: var(--display); font-weight: 400;
     font-size: clamp(17px, 1.4vw, 21px); line-height: 1.5; color: var(--fg-2);
@@ -712,6 +737,9 @@
   }
   .about .meta .v { color: var(--fg); font-size: 14px; }
   .about .meta .v.accent { color: var(--accent); }
+  .about .meta .v.accent a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .about .meta .v.accent a:hover { border-bottom-color: var(--accent); }
+  .about .meta .sep { opacity: .4; margin: 0 4px; }
 
   /* =========== FOOTER =========== */
   footer { padding: 120px 0 36px; border-top: 1px solid var(--line); }
@@ -729,6 +757,9 @@
   }
   footer .row a { color: var(--fg); text-decoration: none; }
   footer .row a:hover { color: var(--accent); }
+  footer .footer-icons { display: flex; align-items: center; gap: 16px; }
+  footer .footer-icons a { display: inline-flex; opacity: .75; transition: opacity .2s, transform .2s; }
+  footer .footer-icons a:hover { opacity: 1; transform: translateY(-2px); }
   footer .row .center { text-align: center; }
   footer .row .right { text-align: right; }
 
