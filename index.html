@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DART — Dynamic Automatic Reactive Targets</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+
+<script src="js/config.js"></script>
+
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body data-theme="light" data-display="grotesk" data-density="comfortable" data-cursor="on" data-marquee="on" data-hl="mixed">
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="brand"><span class="sq"></span> DART</div>
+  <ul>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#tech">Tech</a></li>
+    <li><a href="#audience">Audience</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="meta">&nbsp;2026</div>
+</nav>
+
+<!-- Scroll readout -->
+<div class="scroll-readout">
+  <span>SCROLL</span>
+  <div class="bar"><i id="scrollBar"></i></div>
+  <span id="scrollPct">00%</span>
+</div>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="wrap hero-top reveal in">
+    <div class="hero-eyebrow">
+      DART <b>/</b> Dynamic Automatic Reactive Targets<br>
+      A capstone in Embedded Systems, Bluetooth Mesh, and RF networking.
+    </div>
+    <div class="hero-meta">
+      <div><span class="k">Index</span> 001 / 005</div>
+      <div><span class="k">Build</span> v2.3 · 04.10.26</div>
+      <div><span class="k">Status</span> <span style="color: var(--accent);">● Field-tested</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h1 class="display">
+      <span class="mask-wrap"><span class="mask d1">Targets</span></span>
+      <span class="mask-wrap"><span class="mask d2">that fight <em>back.</em></span></span>
+    </h1>
+  </div>
+
+  <div class="wrap hero-bottom">
+    <p class="lede reveal">
+      <span>// A networked shooting range, reinvented.</span><br>
+      Motorized targets. Sub-40ms hit detection. A BLE Mesh fabric you can drop
+      anywhere, scored from a tablet at the firing line.
+    </p>
+    <div class="right reveal delay-1">
+      <a class="cta" href="#problem">Enter the System <span class="arrow">→</span></a>
+      <a class="cta ghost" href="#tech">Read the Spec Sheet</a>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="item">DYNAMIC <span class="dot"></span> AUTOMATIC <span class="dot"></span> REACTIVE <span class="dot"></span> <em>TARGETS</em> <span class="dot"></span></span>
+    <span class="item">DYNAMIC <span class="dot"></span> AUTOMATIC <span class="dot"></span> REACTIVE <span class="dot"></span> <em>TARGETS</em> <span class="dot"></span></span>
+    <span class="item">DYNAMIC <span class="dot"></span> AUTOMATIC <span class="dot"></span> REACTIVE <span class="dot"></span> <em>TARGETS</em> <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ============== PROBLEM / SOLUTION ============== -->
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="num">/ 01</div>
+      <h2>The range hasn't changed <em>in fifty years.</em></h2>
+      <div class="meta">Static steel,<br>passive feedback,<br>zero data.</div>
+    </div>
+
+    <div class="vs">
+      <div class="old reveal">
+        <div class="kicker">— Status Quo</div>
+        <h3>Steel plates.</h3>
+        <p>Dumb chunks of armor that ring when hit. No movement, no scoring,
+        no analytics. A coach with a clipboard if you're lucky.</p>
+        <ul>
+          <li><span class="ix">A1</span>Predictable engagement geometry</li>
+          <li><span class="ix">A2</span>Manual scoring by ear, eye, or spotter</li>
+          <li><span class="ix">A3</span>No timing, no replay, no data</li>
+          <li><span class="ix">A4</span>Cabled installs — layout locked at build</li>
+        </ul>
+      </div>
+      <div class="new reveal delay-1">
+        <div class="kicker" style="color: var(--accent);">— DART System</div>
+        <h3>Targets <em>that move.</em></h3>
+        <p>A mesh of motorized, sensor-instrumented nodes orchestrated from a
+        tablet. Every shot logged, every drill scripted, every node wireless.</p>
+        <ul>
+          <li><span class="ix">B1</span>Servo-driven face-on / edge-on / pivot motion</li>
+          <li><span class="ix">B2</span>Piezo hit-detection — &lt;40 ms to score</li>
+          <li><span class="ix">B3</span>Per-shot telemetry exported to CSV / JSON</li>
+          <li><span class="ix">B4</span>Drop-and-play — provisioned in 60 seconds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TECH / HOW IT WORKS ============== -->
+<section class="sec" id="tech">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="num">/ 02</div>
+      <h2>An <em>RTOS-grade</em> network — on a range.</h2>
+      <div class="meta">Wireless mesh,<br>real-time firmware,<br>tablet command.</div>
+    </div>
+
+    <div class="how">
+      <div class="step reveal">
+        <div class="ix">T+0 ms</div>
+        <h4>Round impacts the plate.</h4>
+        <p>A piezoelectric film bonded behind the AR500 face picks up the shock
+        wave from the round.</p>
+        <div class="t">Sensor layer</div>
+      </div>
+      <div class="step reveal delay-1">
+        <div class="ix">T+4 ms</div>
+        <h4>MCU classifies the event.</h4>
+        <p>Zephyr RTOS on the nRF52840 filters, de-bounces, and rejects wind
+        and vibration noise via an IMU gate.</p>
+        <div class="t">Firmware</div>
+      </div>
+      <div class="step reveal delay-2">
+        <div class="ix">T+22 ms</div>
+        <h4>Hit hops through the mesh.</h4>
+        <p>A vendor BLE Mesh message travels neighbor-to-neighbor to the
+        provisioner. TTL 5, redundant paths.</p>
+        <div class="t">RF Fabric</div>
+      </div>
+      <div class="step reveal delay-3">
+        <div class="ix">T+38 ms</div>
+        <h4>Tablet scores &amp; reacts.</h4>
+        <p>Score updates on the Range Console. Scripted drills cue the next
+        engagement — servos pivot, LEDs flash.</p>
+        <div class="t">UI · End-to-end</div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <h3 class="reveal">Hardened firmware, custom PCBs, <em>one engineer.</em></h3>
+      <div class="stack-tags reveal delay-1">
+        <span>nRF52840</span>
+        <span>Zephyr RTOS</span>
+        <span>BLE Mesh 1.1</span>
+        <span>Piezo Film</span>
+        <span>IMU Gate</span>
+        <span>PWM Servo</span>
+        <span>LiFePO4 Cell</span>
+        <span>KiCad PCB</span>
+        <span>React Native UI</span>
+        <span>CSV · JSON Export</span>
+        <span>Fusion 360</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WHO BENEFITS ============== -->
+<section class="sec" id="audience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="num">/ 03</div>
+      <h2>For anyone who trains <em>seriously.</em></h2>
+      <div class="meta">From force-on-target<br>to weekend prep.</div>
+    </div>
+
+    <div class="bens">
+      <div class="ben reveal">
+        <div class="ix">/ 01</div>
+        <h4>Law Enforcement</h4>
+        <p>Scenario-based scoring with randomized target activation. Replay
+        engagement timing for post-action review.</p>
+        <div class="tags">Scenario&nbsp;Drills<br>Shot&nbsp;Timing</div>
+      </div>
+      <div class="ben reveal delay-1">
+        <div class="ix">/ 02</div>
+        <h4>Military &amp; Reserves</h4>
+        <p>Squad-level qualification courses with no range-master cabling.
+        Drop nodes anywhere, provision in 60 seconds.</p>
+        <div class="tags">Qual&nbsp;Courses<br>Field&nbsp;Deploy</div>
+      </div>
+      <div class="ben reveal delay-2">
+        <div class="ix">/ 03</div>
+        <h4>Competitive Shooters</h4>
+        <p>USPSA / IPSC / 3-gun practice with shot-by-shot splits, per-target
+        hit-factor, and exportable session data.</p>
+        <div class="tags">USPSA<br>Split&nbsp;Timers</div>
+      </div>
+      <div class="ben reveal delay-3">
+        <div class="ix">/ 04</div>
+        <h4>Commercial Ranges</h4>
+        <p>Differentiate your lanes — bookable drills, per-lane scoring
+        dashboards, and BYO-tablet support.</p>
+        <div class="tags">Range&nbsp;Ops<br>Analytics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div class="photo reveal">
+      <div class="corners"><i></i><i></i><i></i><i></i></div>
+      <span class="cap">// PORTRAIT — DROP&nbsp;1200×1500</span>
+    </div>
+    <div>
+      <div class="label reveal" style="margin-bottom: 28px;">/ 04 · The Engineer</div>
+      <h2 class="reveal delay-1">One range. One year. <em>One engineer.</em></h2>
+      <p class="bio reveal delay-2">
+        DART is the senior capstone of a Computer / Electrical Engineering student
+        building at the intersection of embedded firmware and rugged mechanical
+        design. From custom PCBs and Zephyr drivers to CNC-cut target frames and
+        the tablet UI — every layer of the stack was designed, prototyped, and
+        field-tested by hand.
+      </p>
+      <div class="meta reveal delay-3">
+        <div class="m"><span class="k">Engineer</span><span class="v">Your Name Here</span></div>
+        <div class="m"><span class="k">Program</span><span class="v">B.S. CompE · 2026</span></div>
+        <div class="m"><span class="k">Domains</span><span class="v">Embedded · RF · Mechanical · UX</span></div>
+        <div class="m"><span class="k">Stack</span><span class="v">C · Zephyr · KiCad · RN</span></div>
+        <div class="m"><span class="k">Advisor</span><span class="v">Dr. — · Dept. of ECE</span></div>
+        <div class="m"><span class="k">Contact</span><span class="v accent">work.omishrestha@gmail.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap">
+    <div class="big reveal">Let's put a target<br>where the <em>steel was.</em></div>
+    <div class="row">
+      <div><a href="mailto:work.omishrestha@gmail.com">work.omishrestha@gmail.com</a></div>
+      <div class="center">© 2026 · DART · Capstone Build v2.3</div>
+      <div class="right">↑ <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== SCRIPTS ============== -->
+<script src="js/vendor/react.development.js"></script>
+<script src="js/vendor/react-dom.development.js"></script>
+<script src="js/vendor/babel.min.js"></script>
+<script type="text/babel" src="js/tweaks-panel.jsx"></script>
+
+<script src="js/cursor.js"></script>
+
+<script type="text/babel" src="js/app.jsx"></script>
+
+
+
+</body></html>
