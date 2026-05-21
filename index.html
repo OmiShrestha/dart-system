@@ -34,7 +34,7 @@
 
 <!-- Scroll readout -->
 <div class="scroll-readout">
-  <span>SCROLL</span>
+  <!-- <span>SCROLL</span> -->
   <div class="bar"><i id="scrollBar"></i></div>
   <span id="scrollPct">00%</span>
 </div>
@@ -43,14 +43,14 @@
 <section class="hero">
   <div class="wrap hero-top reveal in">
     <div class="hero-eyebrow">
-      DART <b>/</b> Dynamic Automatic Reactive Targets<br>
-      A capstone in Embedded Systems, Bluetooth Mesh, and RF networking.
+      DART <b>–</b> Dynamic Automatic Reactive Targets<br>
+      Embedded Systems, Bluetooth Mesh, and RF networking.
     </div>
     <div class="hero-meta">
-      <div><span class="k">Index</span> 001 / 005</div>
-      <div><span class="k">Build</span> v2.3 · 04.10.26</div>
-      <div><span class="k">Status</span> <span style="color: var(--accent);">● Field-tested</span></div>
+      <div><span class="k">Platform</span> nRF52840 · Zephyr v2.9.2</div>
+      <div><span class="k">Status</span> <span style="color: var(--accent);">● Field-Tested</span></div>
     </div>
+
   </div>
 
   <div class="wrap">
@@ -63,8 +63,9 @@
   <div class="wrap hero-bottom">
     <p class="lede reveal">
       <span>// A networked shooting range, reinvented.</span><br>
-      Motorized targets. Sub-40ms hit detection. A BLE Mesh fabric you can drop
+      Motorized targets. 50ms hit detection. A BLE Mesh fabric you can drop
       anywhere, scored from a tablet at the firing line.
+
     </p>
     <div class="right reveal delay-1">
       <a class="cta" href="#problem">Enter the System <span class="arrow">→</span></a>
@@ -108,14 +109,15 @@
         <div class="kicker" style="color: var(--accent);">— DART System</div>
         <h3>Targets <em>that move.</em></h3>
         <p>A mesh of motorized, sensor-instrumented nodes orchestrated from a
-        tablet. Every shot logged, every drill scripted, every node wireless.</p>
+          tablet. Every shot logged, every drill scripted, every node wireless.</p>
         <ul>
-          <li><span class="ix">B1</span>Servo-driven face-on / edge-on / pivot motion</li>
-          <li><span class="ix">B2</span>Piezo hit-detection — &lt;40 ms to score</li>
-          <li><span class="ix">B3</span>Per-shot telemetry exported to CSV / JSON</li>
-          <li><span class="ix">B4</span>Drop-and-play — provisioned in 60 seconds</li>
+          <li><span class="ix">B1</span>DC motor raise/lower with PWM-tuned two-stage travel profile</li>
+          <li><span class="ix">B2</span>Magnetic hit-detection — 50 ms poll rate, debounced for reliability</li>
+          <li><span class="ix">B3</span>Per-shot telemetry streamed over BLE Mesh</li>
+          <li><span class="ix">B4</span>Drop-and-play — provisioned over BLE in seconds</li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
@@ -131,52 +133,51 @@
 
     <div class="how">
       <div class="step reveal">
-        <div class="ix">T+0 ms</div>
-        <h4>Round impacts the plate.</h4>
-        <p>A piezoelectric film bonded behind the AR500 face picks up the shock
-        wave from the round.</p>
-        <div class="t">Sensor layer</div>
+        <div class="ix">Step 1</div>
+        <h4>Target raises into position.</h4>
+        <p>A DC motor drives the target upward through four optical position
+          sensors. The MCU tracks each segment in real time and brakes at the
+          top via a two-stage PWM profile.</p>
+        <div class="t">Motor · Position sensing</div>
       </div>
       <div class="step reveal delay-1">
-        <div class="ix">T+4 ms</div>
-        <h4>MCU classifies the event.</h4>
-        <p>Zephyr RTOS on the nRF52840 filters, de-bounces, and rejects wind
-        and vibration noise via an IMU gate.</p>
-        <div class="t">Firmware</div>
+        <div class="ix">Step 2</div>
+        <h4>Hit sensor arms and waits.</h4>
+        <p>Zephyr RTOS on the nRF52840 holds off the magnetic hit sensor for
+          500 ms after reaching top — a debounce window tuned to reject EMI
+          from the RF front-end at motor stop. Then polling begins at 50 ms.</p>
+        <div class="t">Firmware · Sensor debounce</div>
       </div>
       <div class="step reveal delay-2">
-        <div class="ix">T+22 ms</div>
+        <div class="ix">Step 3</div>
         <h4>Hit hops through the mesh.</h4>
-        <p>A vendor BLE Mesh message travels neighbor-to-neighbor to the
-        provisioner. TTL 5, redundant paths.</p>
+        <p>A BLE Mesh notification propagates relay-to-relay to the
+          provisioner at TTL 10. Redundant paths, no infrastructure required.</p>
         <div class="t">RF Fabric</div>
       </div>
       <div class="step reveal delay-3">
-        <div class="ix">T+38 ms</div>
+        <div class="ix">Step 4</div>
         <h4>Tablet scores &amp; reacts.</h4>
         <p>Score updates on the Range Console. Scripted drills cue the next
-        engagement — servos pivot, LEDs flash.</p>
+          engagement — target drops, LEDs flash, next node arms.</p>
         <div class="t">UI · End-to-end</div>
       </div>
     </div>
-
+    
     <div class="stack">
       <h3 class="reveal">Hardened firmware, custom PCBs, <em>one engineer.</em></h3>
       <div class="stack-tags reveal delay-1">
-        <span>nRF52840</span>
-        <span>Zephyr RTOS</span>
-        <span>BLE Mesh 1.1</span>
-        <span>Piezo Film</span>
-        <span>IMU Gate</span>
-        <span>PWM Servo</span>
-        <span>LiFePO4 Cell</span>
-        <span>KiCad PCB</span>
-        <span>React Native UI</span>
-        <span>CSV · JSON Export</span>
-        <span>Fusion 360</span>
+        <a href="https://www.nordicsemi.com/Products/nRF52840" target="_blank" rel="noopener"><span>nRF52840</span></a>
+        <a href="https://zephyrproject.org/" target="_blank" rel="noopener"><span>Zephyr RTOS</span></a>
+        <a href="https://www.bluetooth.com/learn-about-bluetooth/feature-enhancements/mesh/" target="_blank" rel="noopener"><span>BLE & Mesh</span></a>
+        <a href="https://docs.zephyrproject.org/latest/services/device_mgmt/dfu.html" target="_blank" rel="noopener"><span>OTA DFU · MCUboot</span></a>
+        <a href="https://www.nordicsemi.com/Products/nRF21540" target="_blank" rel="noopener"><span>nRF21540 FEM</span></a>
+        <a href="https://www.segger.com/products/debug-probes/j-link/technology/about-real-time-transfer/" target="_blank" rel="noopener"><span>Segger RTT</span></a>
+        <a href="https://www.digikey.com/en/products/category/magnetic-sensors/2068" target="_blank" rel="noopener"><span>Magnetic Hit Sensor</span></a>
+        <a href="https://docs.zephyrproject.org/latest/hardware/peripherals/pwm.html" target="_blank" rel="noopener"><span>PWM DC Motor</span></a>
       </div>
     </div>
-  </div>
+
 </section>
 
 <!-- ============== WHO BENEFITS ============== -->
@@ -190,28 +191,28 @@
 
     <div class="bens">
       <div class="ben reveal">
-        <div class="ix">/ 01</div>
+        <div class="ix">/ A</div>
         <h4>Law Enforcement</h4>
         <p>Scenario-based scoring with randomized target activation. Replay
         engagement timing for post-action review.</p>
         <div class="tags">Scenario&nbsp;Drills<br>Shot&nbsp;Timing</div>
       </div>
       <div class="ben reveal delay-1">
-        <div class="ix">/ 02</div>
+        <div class="ix">/ B</div>
         <h4>Military &amp; Reserves</h4>
         <p>Squad-level qualification courses with no range-master cabling.
         Drop nodes anywhere, provision in 60 seconds.</p>
         <div class="tags">Qual&nbsp;Courses<br>Field&nbsp;Deploy</div>
       </div>
       <div class="ben reveal delay-2">
-        <div class="ix">/ 03</div>
+        <div class="ix">/ C</div>
         <h4>Competitive Shooters</h4>
         <p>USPSA / IPSC / 3-gun practice with shot-by-shot splits, per-target
         hit-factor, and exportable session data.</p>
         <div class="tags">USPSA<br>Split&nbsp;Timers</div>
       </div>
       <div class="ben reveal delay-3">
-        <div class="ix">/ 04</div>
+        <div class="ix">/ D</div>
         <h4>Commercial Ranges</h4>
         <p>Differentiate your lanes — bookable drills, per-lane scoring
         dashboards, and BYO-tablet support.</p>
@@ -226,25 +227,28 @@
   <div class="wrap about">
     <div class="photo reveal">
       <div class="corners"><i></i><i></i><i></i><i></i></div>
-      <span class="cap">// PORTRAIT — DROP&nbsp;1200×1500</span>
+      <img src="omi 5.JPG" alt="Omi Shrestha"
+           style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
     </div>
     <div>
-      <div class="label reveal" style="margin-bottom: 28px;">/ 04 · The Engineer</div>
-      <h2 class="reveal delay-1">One range. One year. <em>One engineer.</em></h2>
-      <p class="bio reveal delay-2">
-        DART is the senior capstone of a Computer / Electrical Engineering student
-        building at the intersection of embedded firmware and rugged mechanical
-        design. From custom PCBs and Zephyr drivers to CNC-cut target frames and
-        the tablet UI — every layer of the stack was designed, prototyped, and
-        field-tested by hand.
-      </p>
+      <div class="label reveal" style="margin-bottom: 28px;">/ 04 The Engineer</div>
+      <h2 class="reveal delay-1">One chip. One year. <em>One engineer.</em></h2>
+      <p class="bio reveal delay-2">nRF52840 · Zephyr RTOS · Bluetooth Mesh · C</p>
+      <ul class="bio-list reveal delay-2">
+        <li>Bare-metal bring-up and all peripheral drivers written from scratch.</li>
+        <li>State machine motor controller with closed-loop speed compensation.</li>
+        <li>Hit detection via polled arm/disarm window — 500ms debounce tuned to reject FEM-induced EMI noise.</li>
+        <li>Full BLE Mesh stack with OTA DFU, manual flash partitioning, and nRF21540 FEM for extended range.</li>
+        <li>All timing constants dialed in through real field testing.</li>
+      </ul>
       <div class="meta reveal delay-3">
-        <div class="m"><span class="k">Engineer</span><span class="v">Your Name Here</span></div>
-        <div class="m"><span class="k">Program</span><span class="v">B.S. CompE · 2026</span></div>
-        <div class="m"><span class="k">Domains</span><span class="v">Embedded · RF · Mechanical · UX</span></div>
-        <div class="m"><span class="k">Stack</span><span class="v">C · Zephyr · KiCad · RN</span></div>
-        <div class="m"><span class="k">Advisor</span><span class="v">Dr. — · Dept. of ECE</span></div>
-        <div class="m"><span class="k">Contact</span><span class="v accent">work.omishrestha@gmail.com</span></div>
+        <div class="m"><span class="k">Software Engineer</span><span class="v">Omi Shrestha</span></div>
+        <div class="m"><span class="k">Program</span><span class="v">B.S. Computer Science</span></div>
+        <div class="m"><span class="k">Domains</span><span class="v">Embedded · IoT · Firmware · Wireless</span></div>
+        <div class="m"><span class="k">Stack</span><span class="v">C · Zephyr RTOS · nRF Connect SDK</span></div>
+        <div class="m"><span class="k">Hardware</span><span class="v">nRF52840dk · nRF21540 FEM</span></div>
+        <div class="m"><span class="k">Build System</span><span class="v">CMake + Ninja · Kconfig · west</span></div>
+        <!-- <div class="m"><span class="k">Contact</span><span class="v accent"><a href="mailto:work.omishrestha@gmail.com">Email</a> <span class="sep">|</span> <a href="https://linkedin.com/in/omishrestha" target="_blank" rel="noopener">LinkedIn</a> <span class="sep">|</span> <a href="https://instagram.com/omishrestha" target="_blank" rel="noopener">Instagram</a></span></div> -->
       </div>
     </div>
   </div>
@@ -255,8 +259,18 @@
   <div class="wrap">
     <div class="big reveal">Let's put a target<br>where the <em>steel was.</em></div>
     <div class="row">
-      <div><a href="mailto:work.omishrestha@gmail.com">work.omishrestha@gmail.com</a></div>
-      <div class="center">© 2026 · DART · Capstone Build v2.3</div>
+      <div class="footer-icons">
+        <a href="mailto:work.omishrestha@gmail.com" aria-label="Email" title="Email">
+          <img src="icons/gmail.svg" alt="Gmail" width="22" height="22">
+        </a>
+        <a href="https://linkedin.com/in/omishrestha" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <img src="icons/linkedin.svg" alt="LinkedIn" width="22" height="22">
+        </a>
+        <a href="https://instagram.com/omishrestha" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <img src="icons/instagram.svg" alt="Instagram" width="22" height="22">
+        </a>
+      </div>
+      <div class="center">© 2026 · DART · Capstone </div>
       <div class="right">↑ <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></div>
     </div>
   </div>
