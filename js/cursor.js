@@ -5,6 +5,8 @@
     let cx = tx, cy = ty;
     cur.style.willChange = 'transform';
     window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    document.addEventListener('mouseleave', () => cur.style.opacity = '0');
+    document.addEventListener('mouseenter', () => cur.style.opacity = '1');
     function loop() {
       cx += (tx - cx) * 1.0;
       cy += (ty - cy) * 1.0;
@@ -12,8 +14,8 @@
       requestAnimationFrame(loop);
     }
     loop();
-    // Hover targets
-    const enlarge = ['a','button','.cta','.stack-tags span','.ben','.how .step'];
+    // Hover targets — reticle grows + ring appears
+    const enlarge = ['a','button','.cta','.stack-tags span','.ben','.how .step','.feature'];
     document.querySelectorAll(enlarge.join(',')).forEach(el => {
       el.addEventListener('mouseenter', () => cur.classList.add('lg'));
       el.addEventListener('mouseleave', () => cur.classList.remove('lg'));
