@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
+<!-- History scroll restoration -->
+<script>history.scrollRestoration = 'auto';</script>
 
 <script src="js/config.js"></script>
 
@@ -51,7 +53,7 @@
   <div class="wrap hero-top reveal in">
     <div class="hero-eyebrow">
       DART <b>–</b> Dynamic Automatic Reactive Targets<br>
-      Embedded Systems, Bluetooth Mesh, and RF networking.
+      SMART TARGETS. REAL-TIME FEEDBACK. ZERO WIRING.
     </div>
     <div class="hero-meta">
       <div><span class="k">Platform</span> nRF52840 · Zephyr v2.9.2</div>
@@ -70,14 +72,14 @@
   <div class="wrap hero-bottom">
     <p class="lede reveal">
       <span>// A networked shooting range, reinvented.</span><br>
-      Motorized targets. 50ms hit detection. A BLE Mesh fabric you can drop
-      anywhere, scored from a tablet at the firing line.
+      Motorized targets. 50ms hit detection. A wireless mesh you can drop anywhere 
+      — scored from a tablet at the firing line.
 
     </p>
-    <div class="right reveal delay-1">
+    <!-- <div class="right reveal delay-1">
       <a class="cta" href="#problem">Enter the System <span class="arrow">→</span></a>
       <a class="cta ghost" href="#tech">Read the Spec Sheet</a>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -187,11 +189,84 @@
 
 </section>
 
+<!-- ============== THE SYSTEM ============== -->
+<section class="sec" id="system">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="num">/ 03</div>
+      <h2>Everything the system <em>does.</em></h2>
+      <div class="meta">Hardware,<br>firmware,<br>and UI.</div>
+    </div>
+
+    <!-- ============== FEATURES ============== -->
+    <div class="features">
+
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('range-modal').classList.add('open')">
+        <div class="feat-num">I. </div>
+        <div class="feat-body">
+          <h4>The Range — Multiple Targets, One Network <span class="feat-cta">↗ See topology</span></h4>
+          <p>One target is a demo. DART is a range. Up to [N] motorized nodes share a single BLE Mesh fabric — any target can be cued, dropped, or scored independently from the same tablet.</p>
+        </div>
+        <div class="feat-tag">Mesh · Orchestration</div>
+      </div>
+
+      <div class="feature reveal delay-1" id="drills-row" style="cursor:pointer;" onclick="document.getElementById('drills-modal').classList.add('open')">
+        <div class="feat-num">II. </div>
+        <div class="feat-body">
+          <h4>Scripted Drills <span class="feat-cta">↗ See example</span></h4>
+          <p>Build a drill once. Run it on any range. DART's drill engine sequences targets in order, on timers, or on reaction — so a coach programs the scenario, not the rep.</p>
+        </div>
+        <div class="feat-tag">Drill Engine · Automation</div>
+      </div>
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('led-modal').classList.add('open')">
+        <div class="feat-num">III. </div>
+        <div class="feat-body">
+          <h4>LED Target Feedback <span class="feat-cta">↗ See states</span></h4>
+          <p>The target tells the shooter what happened. Green on hit. Red on miss timeout. No coach needed at the berm.</p>
+        </div>
+        <div class="feat-tag">UX · Real-time</div>
+      </div>
+      <div class="feature reveal delay-1" style="cursor:pointer;" onclick="document.getElementById('hw-modal').classList.add('open')">
+        <div class="feat-num">IV. </div>
+        <div class="feat-body">
+          <h4>The Hardware <span class="feat-cta">↗ See layers</span></h4>
+          <p>Each node is a custom PCB — nRF52840 SoC, magnetic hit sensor, DC motor driver, and optical position sensing — in a weatherproof enclosure built to take rounds.</p>
+        </div>
+        <div class="feat-tag">PCB · Enclosure</div>
+      </div>
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('console-modal').classList.add('open')">
+        <div class="feat-num">V. </div>
+        <div class="feat-body">
+          <h4>Range Console — Tablet UI <span class="feat-cta">↗ See console</span></h4>
+          <p>The firing line runs on a tablet. Start drills, watch live scores, review hit timelines, and reset the range — all without walking downrange.</p>
+        </div>
+        <div class="feat-tag">UI · Command</div>
+      </div>
+      <div class="feature reveal delay-1" style="cursor:pointer;" onclick="document.getElementById('deploy-modal').classList.add('open')">
+        <div class="feat-num">VI. </div>
+        <div class="feat-body">
+          <h4>Field Deployment <span class="feat-cta">↗ See boot sequence</span></h4>
+          <p>No router. No infrastructure. Mesh provisions itself. Unpack, power on, shoot.</p>
+        </div>
+        <div class="feat-tag">Wireless · Zero-config</div>
+      </div>
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('fw-modal').classList.add('open')">
+        <div class="feat-num">VII. </div>
+        <div class="feat-body">
+          <h4>Firmware — Built on Zephyr RTOS <span class="feat-cta">↗ See architecture</span></h4>
+          <p>Every node runs Zephyr — a real-time OS with deterministic scheduling, OTA update support, and a hardware abstraction layer that keeps the firmware portable as the hardware evolves.</p>
+        </div>
+        <div class="feat-tag">RTOS · OTA · HAL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== WHO BENEFITS ============== -->
 <section class="sec" id="audience">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="num">/ 03</div>
+      <div class="num">/ 04</div>
       <h2>For anyone who trains <em>seriously.</em></h2>
       <div class="meta">From force-on-target<br>to weekend prep.</div>
     </div>
@@ -238,7 +313,7 @@
            style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
     </div>
     <div>
-      <div class="label reveal" style="margin-bottom: 28px;">/ 04 The Engineer</div>
+      <div class="label reveal" style="margin-bottom: 28px;">/ 05 The Engineer</div>
       <h2 class="reveal delay-1">One chip. One year. <em>One engineer.</em></h2>
       <p class="bio reveal delay-2">nRF52840 · Zephyr RTOS · Bluetooth Mesh · C</p>
       <ul class="bio-list reveal delay-2">
@@ -286,6 +361,433 @@
   </div>
 </footer>
 
+<!-- ============== RANGE MODAL ============== -->
+<div id="range-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('range-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Range Topology</div>
+      <h3 class="modal-title">THE RANGE — 6 NODES, ONE MESH</h3>
+      <div class="modal-sub">6 nodes · single provisioner · no infrastructure</div>
+    </div>
+
+    <div class="modal-sequence">
+      <svg class="range-diagram" viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Connection lines (drawn first, behind nodes) -->
+        <line x1="240" y1="48" x2="240" y2="78" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="224" y1="105" x2="80" y2="153" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="240" y1="114" x2="240" y2="153" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="256" y1="105" x2="400" y2="153" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="80" y1="175" x2="80" y2="230" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="400" y1="175" x2="400" y2="230" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="93" y1="252" x2="227" y2="252" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="253" y1="252" x2="387" y2="252" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 3"/>
+
+        <!-- TABLET (landscape, minimalistic) -->
+        <g transform="translate(240, 28)">
+          <rect x="-33" y="-20" width="66" height="40" rx="5" fill="none" stroke="var(--fg)" stroke-width="1.5"/>
+          <rect x="-28" y="-15" width="56" height="30" rx="2" fill="var(--fg)" fill-opacity="0.07"/>
+          <rect x="-10" y="15" width="20" height="2.5" rx="1.25" fill="var(--fg)" fill-opacity="0.4"/>
+          <circle cx="0" cy="-18" r="1.2" fill="var(--fg)" fill-opacity="0.4"/>
+        </g>
+
+        <!-- PROVISIONER (hexagon + crosshair) -->
+        <g transform="translate(240, 96)">
+          <polygon points="0,-18 15.6,-9 15.6,9 0,18 -15.6,9 -15.6,-9"
+                   fill="var(--accent)" fill-opacity="0.12"
+                   stroke="var(--accent)" stroke-width="1.5"/>
+          <line x1="-7" y1="0" x2="7" y2="0" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="0" y1="-7" x2="0" y2="7" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+        </g>
+
+        <!-- TARGETS ROW 1 -->
+        <g transform="translate(80, 165)">
+          <polygon points="0,-12 13,10 -13,10" fill="var(--fg)" fill-opacity="0.07" stroke="var(--fg)" stroke-width="1.3" stroke-linejoin="round"/>
+          <text y="24" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--fg-3)" letter-spacing="0.08em">T-1</text>
+        </g>
+        <g transform="translate(240, 165)">
+          <polygon points="0,-12 13,10 -13,10" fill="var(--fg)" fill-opacity="0.07" stroke="var(--fg)" stroke-width="1.3" stroke-linejoin="round"/>
+          <text y="24" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--fg-3)" letter-spacing="0.08em">T-2</text>
+        </g>
+        <g transform="translate(400, 165)">
+          <polygon points="0,-12 13,10 -13,10" fill="var(--fg)" fill-opacity="0.07" stroke="var(--fg)" stroke-width="1.3" stroke-linejoin="round"/>
+          <text y="24" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--fg-3)" letter-spacing="0.08em">T-3</text>
+        </g>
+
+        <!-- TARGETS ROW 2 -->
+        <g transform="translate(80, 242)">
+          <polygon points="0,-12 13,10 -13,10" fill="var(--fg)" fill-opacity="0.07" stroke="var(--fg)" stroke-width="1.3" stroke-linejoin="round"/>
+          <text y="24" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--fg-3)" letter-spacing="0.08em">T-4</text>
+        </g>
+        <g transform="translate(240, 242)">
+          <polygon points="0,-12 13,10 -13,10" fill="var(--fg)" fill-opacity="0.07" stroke="var(--fg)" stroke-width="1.3" stroke-linejoin="round"/>
+          <text y="24" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--fg-3)" letter-spacing="0.08em">T-6</text>
+        </g>
+        <g transform="translate(400, 242)">
+          <polygon points="0,-12 13,10 -13,10" fill="var(--fg)" fill-opacity="0.07" stroke="var(--fg)" stroke-width="1.3" stroke-linejoin="round"/>
+          <text y="24" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="var(--fg-3)" letter-spacing="0.08em">T-5</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <p class="modal-summary">Each node relays to its neighbors. No router. No hub. No single point of failure.<br>Any node goes down — the mesh reroutes. Any node gets hit — the tablet knows in under 100ms.</p>
+
+    <div class="modal-tags">
+      <span>BLE Mesh</span><span>Self-Healing</span><span>Relay</span><span>TTL Routing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== DRILLS MODAL ============== -->
+<div id="drills-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('drills-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Drill Example <span class="modal-live">● LIVE</span></div>
+      <h3 class="modal-title">DRILL — MOZAMBIQUE PROTOCOL</h3>
+      <div class="modal-sub">3 targets · 2.5s par time · reaction mode</div>
+    </div>
+
+    <div class="modal-sequence">
+      <div class="drill-step">
+        <span class="step-num">Step 1</span>
+        <span class="step-arrow">→</span>
+        <span class="step-action">Target 3 raises</span>
+        <span class="step-note">[ wait for hit ]</span>
+      </div>
+      <div class="drill-step">
+        <span class="step-num">Step 2</span>
+        <span class="step-arrow">→</span>
+        <span class="step-action">Target 3 drops</span>
+        <span class="step-note">[ hit confirmed · drops ]</span>
+      </div>
+      <div class="drill-step">
+        <span class="step-num">Step 3</span>
+        <span class="step-arrow">→</span>
+        <span class="step-action">Target 1 raises</span>
+        <span class="step-note">[ wait for hit ]</span>
+      </div>
+      <div class="drill-step">
+        <span class="step-num">Step 4</span>
+        <span class="step-arrow">→</span>
+        <span class="step-action">Target 5 raises</span>
+        <span class="step-note">[ wait for hit ]</span>
+      </div>
+      <div class="drill-divider">── par timer starts ──</div>
+      <div class="drill-step final">
+        <span class="step-num">Step 5</span>
+        <span class="step-arrow">→</span>
+        <span class="step-action">Score posted to Range Console</span>
+      </div>
+      <div class="drill-step miss">
+        <span class="step-num">Miss</span>
+        <span class="step-arrow">→</span>
+        <span class="step-action">Target holds position</span>
+        <span class="step-note">[ par timer continues ]</span>
+      </div>
+    </div>
+
+    <p class="modal-summary">Drills are sequences of target cues, timers, and scoring rules — written once, repeatable on any range.</p>
+
+    <div class="modal-tags">
+      <span>Targets</span><span>Timers</span><span>Scoring</span><span>Fully Scripted</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== LED MODAL ============== -->
+<div id="led-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('led-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">LED Feedback States</div>
+      <h3 class="modal-title">THE TARGET TELLS YOU WHAT HAPPENED</h3>
+      <div class="modal-sub">3 states · instant feedback · no coach required</div>
+    </div>
+
+    <div class="modal-sequence">
+      <div class="led-states">
+        <div class="led-card led-card-armed">
+          <div class="led-circle led-white"></div>
+          <div class="led-state-label">ARMED</div>
+          <div class="led-state-desc">Target raised, sensor active, waiting for hit</div>
+        </div>
+        <div class="led-card led-card-hit">
+          <div class="led-circle led-green"></div>
+          <div class="led-state-label">HIT CONFIRMED</div>
+          <div class="led-state-desc">Magnetic sensor triggered, hit logged to mesh</div>
+        </div>
+        <div class="led-card led-card-miss">
+          <div class="led-circle led-red"></div>
+          <div class="led-state-label">MISS TIMEOUT</div>
+          <div class="led-state-desc">Par timer expired, no hit detected</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="modal-summary">No light means no power. Green means you hit. Red means you didn't. The target knows before the coach does.</p>
+
+    <div class="modal-tags">
+      <span>LED Indicators</span><span>Hit Confirmed</span><span>Miss Timeout</span><span>Real-Time</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== HARDWARE MODAL ============== -->
+<div id="hw-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('hw-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Node Hardware</div>
+      <h3 class="modal-title">CUSTOM PCB — BUILT FOR THE RANGE</h3>
+      <div class="modal-sub">nRF52840 · motor driver · hit sensor · position sensing</div>
+    </div>
+
+    <div class="modal-sequence hw-stack">
+      <div class="hw-layer">
+        <span class="hw-label">ENCLOSURE</span>
+        <span class="hw-desc">Weatherproof housing, absorbs rounds and outdoor exposure</span>
+      </div>
+      <div class="hw-layer">
+        <span class="hw-label">nRF52840 SoC</span>
+        <span class="hw-desc">ARM Cortex-M4, runs Zephyr RTOS, BLE Mesh radio onboard</span>
+      </div>
+      <div class="hw-layer">
+        <span class="hw-label">MAGNETIC HIT SENSOR</span>
+        <span class="hw-desc">Detects round impact via magnetic field disruption, 50ms polling window</span>
+      </div>
+      <div class="hw-layer">
+        <span class="hw-label">DC MOTOR DRIVER</span>
+        <span class="hw-desc">Two-stage PWM profile, drives target raise and controlled drop</span>
+      </div>
+      <div class="hw-layer">
+        <span class="hw-label">OPTICAL POSITION SENSORS</span>
+        <span class="hw-desc">Four sensors track target position segment by segment in real time</span>
+      </div>
+      <div class="hw-layer">
+        <span class="hw-label">POWER</span>
+        <span class="hw-desc">Field-deployable power input, no infrastructure required</span>
+      </div>
+    </div>
+
+    <p class="modal-summary">Every node is self-contained. One cable for power. Everything else is wireless.</p>
+
+    <div class="modal-tags">
+      <span>nRF52840</span><span>Zephyr RTOS</span><span>Custom PCB</span><span>Weatherproof</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== CONSOLE MODAL ============== -->
+<div id="console-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('console-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Range Console</div>
+      <h3 class="modal-title">THE FIRING LINE — ON A TABLET</h3>
+      <div class="modal-sub">live scoring · drill control · hit timelines · range reset</div>
+    </div>
+
+    <div class="modal-sequence">
+      <div class="rc-tablet">
+        <div class="rc-topbar">
+          <span class="rc-title-text">RANGE CONSOLE</span>
+          <span class="rc-live">● LIVE</span>
+        </div>
+        <div class="rc-drill-row">
+          <span class="rc-drill-name">DRILL: MOZAMBIQUE PROTOCOL</span>
+          <span class="rc-timer" id="rc-timer">00.0s</span>
+        </div>
+        <div class="rc-divider"></div>
+        <div class="rc-targets">
+          <div class="rc-row rc-state-hit">
+            <span class="rc-id">T-1</span>
+            <div class="rc-bar-track"><div class="rc-bar-fill"></div></div>
+            <span class="rc-status">HIT</span>
+            <span class="rc-split">0.84s</span>
+          </div>
+          <div class="rc-row rc-state-armed">
+            <span class="rc-id">T-2</span>
+            <div class="rc-bar-track"><div class="rc-bar-fill"></div></div>
+            <span class="rc-status">ARMED</span>
+            <span class="rc-split">—</span>
+          </div>
+          <div class="rc-row rc-state-armed" id="rc-t3">
+            <span class="rc-id">T-3</span>
+            <div class="rc-bar-track"><div class="rc-bar-fill"></div></div>
+            <span class="rc-status">ARMED</span>
+            <span class="rc-split">—</span>
+          </div>
+          <div class="rc-row rc-state-waiting">
+            <span class="rc-id">T-4</span>
+            <div class="rc-bar-track"><div class="rc-bar-fill"></div></div>
+            <span class="rc-status">WAITING</span>
+            <span class="rc-split">—</span>
+          </div>
+          <div class="rc-row rc-state-armed" id="rc-t5">
+            <span class="rc-id">T-5</span>
+            <div class="rc-bar-track"><div class="rc-bar-fill"></div></div>
+            <span class="rc-status">ARMED</span>
+            <span class="rc-split">—</span>
+          </div>
+        </div>
+        <div class="rc-divider"></div>
+        <div class="rc-buttons">
+          <button class="rc-btn" tabindex="-1">START DRILL</button>
+          <button class="rc-btn" tabindex="-1">RESET RANGE</button>
+          <button class="rc-btn" tabindex="-1">VIEW LOG</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="modal-summary">Every hit, every miss, every split time — posted to the console the moment it happens. No downrange. No clipboard.</p>
+
+    <div class="modal-tags">
+      <span>Tablet UI</span><span>Live Scoring</span><span>Drill Control</span><span>Hit Timeline</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== DEPLOY MODAL ============== -->
+<div id="deploy-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('deploy-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Field Deployment</div>
+      <h3 class="modal-title">UNPACK. POWER ON. SHOOT.</h3>
+      <div class="modal-sub">no router · no infrastructure · self-provisioning mesh</div>
+    </div>
+
+    <div class="modal-sequence dp-sequence">
+      <div class="dp-timeline">
+        <div class="dp-step" id="dp-s1">
+          <div class="dp-step-num">01</div>
+          <div class="dp-step-icon">⊠</div>
+          <div class="dp-step-label">UNPACK</div>
+          <div class="dp-step-time">0s</div>
+        </div>
+        <div class="dp-conn" id="dp-c1"><div class="dp-conn-fill"></div></div>
+        <div class="dp-step" id="dp-s2">
+          <div class="dp-step-num">02</div>
+          <div class="dp-step-icon">↑</div>
+          <div class="dp-step-label">NODES POWER ON</div>
+          <div class="dp-step-time">3s</div>
+        </div>
+        <div class="dp-conn" id="dp-c2"><div class="dp-conn-fill"></div></div>
+        <div class="dp-step" id="dp-s3">
+          <div class="dp-step-num">03</div>
+          <div class="dp-step-icon">)))</div>
+          <div class="dp-step-label">MESH PROVISIONS</div>
+          <div class="dp-step-time">8s</div>
+        </div>
+        <div class="dp-conn" id="dp-c3"><div class="dp-conn-fill"></div></div>
+        <div class="dp-step" id="dp-s4">
+          <div class="dp-step-num">04</div>
+          <div class="dp-step-icon">●</div>
+          <div class="dp-step-label">RANGE LIVE</div>
+          <div class="dp-step-time">12s</div>
+        </div>
+      </div>
+
+      <div class="dp-terminal">
+        <div class="dp-log" id="dp-log-1"><span class="dp-log-t">[  0s]</span>  Nodes detected: 6</div>
+        <div class="dp-log" id="dp-log-2"><span class="dp-log-t">[  3s]</span>  Provisioner online</div>
+        <div class="dp-log" id="dp-log-3"><span class="dp-log-t">[  6s]</span>  Relay paths established: 14</div>
+        <div class="dp-log" id="dp-log-4"><span class="dp-log-t">[  8s]</span>  Mesh health: OK</div>
+        <div class="dp-log" id="dp-log-5"><span class="dp-log-t">[ 12s]</span>  Range ready. Awaiting drill start.</div>
+      </div>
+    </div>
+
+    <p class="modal-summary">DART carries its own network. No site prep, no IT, no infrastructure. If there's power, there's a range.</p>
+
+    <div class="modal-tags">
+      <span>Self-Provisioning</span><span>BLE Mesh</span><span>No Infrastructure</span><span>Field Ready</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== FIRMWARE MODAL ============== -->
+<div id="fw-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('fw-modal').classList.remove('open')" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-eyebrow">Firmware Architecture</div>
+      <h3 class="modal-title">BUILT ON ZEPHYR RTOS</h3>
+      <div class="modal-sub">deterministic scheduling · OTA updates · hardware abstraction</div>
+    </div>
+
+    <div class="modal-sequence">
+      <div class="fw-diagram">
+
+        <div class="fw-left">
+          <div class="fw-layer fw-app">
+            <span class="fw-layer-name">APPLICATION</span>
+            <span class="fw-layer-desc">Drill engine, scoring logic, mesh event handlers</span>
+          </div>
+          <div class="fw-layer fw-ble">
+            <span class="fw-layer-name">BLE MESH STACK</span>
+            <span class="fw-layer-desc">Provisioning, relay routing, TTL management</span>
+          </div>
+          <div class="fw-layer fw-rtos">
+            <span class="fw-layer-name">ZEPHYR RTOS</span>
+            <span class="fw-layer-desc">Preemptive scheduler, thread management, kernel timers</span>
+          </div>
+          <div class="fw-layer fw-hal">
+            <span class="fw-layer-name">HAL / DRIVERS</span>
+            <span class="fw-layer-desc">Motor PWM, magnetic sensor, LED GPIO, UART logging</span>
+          </div>
+          <div class="fw-layer fw-soc">
+            <span class="fw-layer-name">nRF52840 SoC</span>
+            <span class="fw-layer-desc">ARM Cortex-M4F, 1MB flash, hardware BLE radio</span>
+          </div>
+        </div>
+
+        <div class="fw-right">
+          <div class="fw-sched-label">SCHEDULER TICK</div>
+          <div class="fw-tasks">
+            <div class="fw-task">
+              <div class="fw-task-name">SENSOR POLL</div>
+              <div class="fw-task-bar"><div class="fw-task-dot" style="animation-duration:1.2s"></div></div>
+              <div class="fw-task-rate">50ms</div>
+            </div>
+            <div class="fw-task">
+              <div class="fw-task-name">MOTOR CTRL</div>
+              <div class="fw-task-bar"><div class="fw-task-dot" style="animation-duration:0.5s"></div></div>
+              <div class="fw-task-rate">20ms</div>
+            </div>
+            <div class="fw-task">
+              <div class="fw-task-name">MESH TX</div>
+              <div class="fw-task-bar"><div class="fw-task-dot" style="animation-duration:2.5s"></div></div>
+              <div class="fw-task-rate">100ms</div>
+            </div>
+            <div class="fw-task">
+              <div class="fw-task-name">OTA CHECK</div>
+              <div class="fw-task-bar"><div class="fw-task-dot" style="animation-duration:7s"></div></div>
+              <div class="fw-task-rate">5s</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="modal-summary">Zephyr gives every task a guaranteed time slot. Hit detection never waits on mesh traffic. Motor control never waits on scoring. Everything runs on time, every time.<br><br>OTA updates push new firmware to every node over the mesh — no cables, no downrange, no downtime.</p>
+
+    <div class="modal-tags">
+      <span>Zephyr RTOS</span><span>OTA Updates</span><span>HAL</span><span>Deterministic</span><span>nRF52840</span>
+    </div>
+  </div>
+</div>
+
 <!-- ============== SCRIPTS ============== -->
 <script src="js/vendor/react.development.js"></script>
 <script src="js/vendor/react-dom.development.js"></script>
@@ -295,6 +797,172 @@
 <script src="js/cursor.js"></script>
 
 <script type="text/babel" src="js/app.jsx"></script>
+
+<!-- Scroll restoration on reload -->
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') ['drills-modal','range-modal','led-modal','hw-modal','console-modal','deploy-modal','fw-modal'].forEach(function(id){ document.getElementById(id).classList.remove('open'); });
+  });
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname);
+    }
+
+    // Range Console animation
+    (function() {
+      var loop, cycleStart, t3State = '', t5State = '';
+      var modal = document.getElementById('console-modal');
+      if (!modal) return;
+
+      function tick() {
+        var timerEl = document.getElementById('rc-timer');
+        var t3 = document.getElementById('rc-t3');
+        var t5 = document.getElementById('rc-t5');
+        if (!timerEl) return;
+        var ct = (Date.now() - cycleStart) % 5000;
+
+        // Timer: counts 0→3.2s, holds, resets
+        if (ct < 3200) {
+          var s = (ct / 1000).toFixed(1);
+          timerEl.textContent = (parseFloat(s) < 10 ? '0' : '') + s + 's';
+        } else if (ct < 4200) {
+          timerEl.textContent = '03.2s';
+        } else {
+          timerEl.textContent = '00.0s';
+        }
+
+        // T-3: ARMED → HIT at 1000ms
+        var nt3 = (ct >= 1000 && ct < 4500) ? 'hit' : 'armed';
+        if (nt3 !== t3State && t3) {
+          t3State = nt3;
+          var s3 = t3.querySelector('.rc-status'), sp3 = t3.querySelector('.rc-split');
+          if (nt3 === 'hit') {
+            t3.className = 'rc-row rc-state-hit rc-just-hit';
+            if (s3) s3.textContent = 'HIT';
+            if (sp3) sp3.textContent = '1.12s';
+            setTimeout(function() { if (t3) t3.classList.remove('rc-just-hit'); }, 600);
+          } else {
+            t3.className = 'rc-row rc-state-armed';
+            if (s3) s3.textContent = 'ARMED';
+            if (sp3) sp3.textContent = '—';
+          }
+        }
+
+        // T-5: ARMED → MISS at 2000ms
+        var nt5 = (ct >= 2000 && ct < 4500) ? 'miss' : 'armed';
+        if (nt5 !== t5State && t5) {
+          t5State = nt5;
+          var s5 = t5.querySelector('.rc-status');
+          if (nt5 === 'miss') {
+            t5.className = 'rc-row rc-state-miss rc-just-miss';
+            if (s5) s5.textContent = 'MISS';
+            setTimeout(function() { if (t5) t5.classList.remove('rc-just-miss'); }, 600);
+          } else {
+            t5.className = 'rc-row rc-state-armed';
+            if (s5) s5.textContent = 'ARMED';
+          }
+        }
+      }
+
+      new MutationObserver(function() {
+        if (modal.classList.contains('open')) {
+          cycleStart = Date.now(); t3State = ''; t5State = '';
+          loop = setInterval(tick, 50);
+        } else {
+          clearInterval(loop);
+        }
+      }).observe(modal, { attributes: true, attributeFilter: ['class'] });
+    })();
+
+    // Field Deployment boot sequence animation
+    (function() {
+      var loop, cycleStart;
+      var prevStep = -1, prevConns = [false, false, false], prevLogs = [false, false, false, false, false];
+      var modal = document.getElementById('deploy-modal');
+      if (!modal) return;
+
+      // Times within a 7s cycle (ms)
+      var STEP_T  = [0, 1500, 3000, 4500];   // step activations
+      var CONN_T  = [1000, 2500, 4000];        // connector fill starts
+      var LOG_T   = [0, 1500, 3000, 3800, 4500]; // log line appearances
+      var RESET_T = 6000;
+
+      function resetConnFills() {
+        [1,2,3].forEach(function(i) {
+          var f = document.querySelector('#dp-c' + i + ' .dp-conn-fill');
+          if (!f) return;
+          f.style.transition = 'none';
+          f.style.width = '0';
+          requestAnimationFrame(function() { f.style.transition = ''; });
+        });
+      }
+
+      function fullReset() {
+        [1,2,3,4].forEach(function(i) {
+          var s = document.getElementById('dp-s' + i);
+          if (s) s.classList.remove('dp-active');
+        });
+        resetConnFills();
+        [1,2,3,4,5].forEach(function(i) {
+          var l = document.getElementById('dp-log-' + i);
+          if (l) l.classList.remove('dp-visible');
+        });
+        prevStep = -1; prevConns = [false,false,false]; prevLogs = [false,false,false,false,false];
+      }
+
+      function tick() {
+        var ct = (Date.now() - cycleStart) % 7000;
+
+        if (ct >= RESET_T) {
+          if (prevStep !== -2) { fullReset(); prevStep = -2; }
+          return;
+        }
+
+        // Active step
+        var cur = 0;
+        for (var i = 0; i < STEP_T.length; i++) { if (ct >= STEP_T[i]) cur = i + 1; }
+        if (cur !== prevStep) {
+          prevStep = cur;
+          [1,2,3,4].forEach(function(i) {
+            var s = document.getElementById('dp-s' + i);
+            if (s) s.classList.toggle('dp-active', i === cur);
+          });
+        }
+
+        // Connectors
+        CONN_T.forEach(function(t, i) {
+          var fill = ct >= t;
+          if (fill !== prevConns[i]) {
+            prevConns[i] = fill;
+            var f = document.querySelector('#dp-c' + (i+1) + ' .dp-conn-fill');
+            if (f) f.style.width = fill ? '100%' : '0';
+          }
+        });
+
+        // Log lines
+        LOG_T.forEach(function(t, i) {
+          var show = ct >= t;
+          if (show !== prevLogs[i]) {
+            prevLogs[i] = show;
+            var l = document.getElementById('dp-log-' + (i+1));
+            if (l) l.classList.toggle('dp-visible', show);
+          }
+        });
+      }
+
+      new MutationObserver(function() {
+        if (modal.classList.contains('open')) {
+          cycleStart = Date.now();
+          prevStep = -1; prevConns = [false,false,false]; prevLogs = [false,false,false,false,false];
+          loop = setInterval(tick, 50);
+        } else {
+          clearInterval(loop);
+          fullReset();
+        }
+      }).observe(modal, { attributes: true, attributeFilter: ['class'] });
+    })();
+  });
+</script>
 
 <script>
 (function () {
