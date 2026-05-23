@@ -36,6 +36,110 @@
     upd();
   })();
 
+  // BLE Mesh pulse background
+  (function() {
+    var canvas = document.getElementById('mesh-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = 0, H = 0, dpr = 1, nodes = [], rafId;
+    var NODE_COUNT = 22, THRESH = 260;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var rect = canvas.getBoundingClientRect();
+      W = rect.width  || canvas.parentElement.offsetWidth  || window.innerWidth;
+      H = rect.height || canvas.parentElement.offsetHeight || window.innerHeight;
+      if (!W || !H) return;
+      canvas.width  = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function init() {
+      nodes = [];
+      for (var i = 0; i < NODE_COUNT; i++) {
+        var prov = i < 2;
+        nodes.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.28,
+          vy: (Math.random() - 0.5) * 0.28,
+          r:   prov ? 3.5 : Math.random() * 1.5 + 1.5,
+          phase: Math.random() * Math.PI * 2,
+          freq:  Math.random() * 0.0012 + 0.0006,
+          prov:  prov
+        });
+      }
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+
+      nodes.forEach(function(n) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < -30) n.x = W + 30;
+        if (n.x > W+30) n.x = -30;
+        if (n.y < -30) n.y = H + 30;
+        if (n.y > H+30) n.y = -30;
+      });
+
+      // Connection lines
+      for (var i = 0; i < nodes.length; i++) {
+        for (var j = i + 1; j < nodes.length; j++) {
+          var a = nodes[i], b = nodes[j];
+          var dx = b.x - a.x, dy = b.y - a.y;
+          var d  = Math.sqrt(dx*dx + dy*dy);
+          if (d < THRESH) {
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = 'rgba(255,90,31,' + ((1 - d/THRESH) * 0.20).toFixed(3) + ')';
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Nodes
+      nodes.forEach(function(n) {
+        var pulse = 0.5 + 0.5 * Math.sin(t * n.freq + n.phase);
+        var base  = n.prov ? 0.45 : 0.25;
+        var alpha = base + pulse * (n.prov ? 0.28 : 0.20);
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r * (0.8 + pulse * 0.25), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,90,31,' + alpha.toFixed(3) + ')';
+        ctx.fill();
+      });
+
+      rafId = requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('load', function() {
+      resize();
+      if (!W || !H) return;
+      init();
+
+      new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          if (!rafId) rafId = requestAnimationFrame(draw);
+        } else {
+          cancelAnimationFrame(rafId); rafId = null;
+        }
+      }).observe(canvas);
+
+      rafId = requestAnimationFrame(draw);
+    });
+
+    window.addEventListener('resize', function() {
+      resize();
+      if (W && H) {
+        nodes.forEach(function(n) {
+          n.x = Math.min(n.x, W);
+          n.y = Math.min(n.y, H);
+        });
+      }
+    });
+  })();
+
   // Hit-impact click ripple
   (function() {
     function ring(x, y, size, ms, delay) {
