@@ -374,6 +374,10 @@
   .feature { cursor: none !important; }
   body[data-cursor="off"] .cursor { display: none; }
   body[data-cursor="off"] .feature { cursor: pointer !important; }
+  @media (hover: none), (pointer: coarse) {
+    .cursor { display: none !important; }
+    body, .feature { cursor: auto !important; }
+  }
 
   /* Hit-impact click ripple */
   @keyframes hit-ring-expand {
