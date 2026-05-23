@@ -36,6 +36,32 @@
     upd();
   })();
 
+  // Hit-impact click ripple
+  (function() {
+    function ring(x, y, size, ms, delay) {
+      var el = document.createElement('div');
+      el.className = 'hit-ring';
+      el.style.left = x + 'px';
+      el.style.top  = y + 'px';
+      el.style.width  = size + 'px';
+      el.style.height = size + 'px';
+      el.style.animationDuration = ms + 'ms';
+      if (delay) el.style.animationDelay = delay + 'ms';
+      document.body.appendChild(el);
+      el.addEventListener('animationend', function() { el.remove(); });
+    }
+    document.addEventListener('click', function(e) {
+      var dot = document.createElement('div');
+      dot.className = 'hit-dot';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top  = e.clientY + 'px';
+      document.body.appendChild(dot);
+      dot.addEventListener('animationend', function() { dot.remove(); });
+      ring(e.clientX, e.clientY, 40, 360,  0);
+      ring(e.clientX, e.clientY, 68, 500, 45);
+    });
+  })();
+
   // Reveal on scroll
   (function () {
     const obs = new IntersectionObserver((entries) => {

@@ -375,6 +375,27 @@
   body[data-cursor="off"] .cursor { display: none; }
   body[data-cursor="off"] .feature { cursor: pointer !important; }
 
+  /* Hit-impact click ripple */
+  @keyframes hit-ring-expand {
+    0%   { transform: translate(-50%,-50%) scale(0); opacity: 0.85; }
+    100% { transform: translate(-50%,-50%) scale(1); opacity: 0;    }
+  }
+  @keyframes hit-dot-fade {
+    0%   { opacity: 1; transform: translate(-50%,-50%) scale(1);   }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(2.5); }
+  }
+  .hit-ring {
+    position: fixed; pointer-events: none; z-index: 9998;
+    border-radius: 50%; border: 1.5px solid var(--accent);
+    animation: hit-ring-expand ease-out both;
+  }
+  .hit-dot {
+    position: fixed; pointer-events: none; z-index: 9998;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--accent);
+    animation: hit-dot-fade 0.18s ease-out both;
+  }
+
   /* Nav */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
