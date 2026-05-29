@@ -377,6 +377,10 @@
   @media (hover: none), (pointer: coarse) {
     .cursor { display: none !important; }
     body, .feature { cursor: auto !important; }
+    /* Always show the tap CTA — no hover on touch */
+    .feat-cta { opacity: 1; }
+    /* Pressed state feedback */
+    .feature:active { background: var(--bg-1); }
   }
 
   /* Hit-impact click ripple */
@@ -1358,9 +1362,11 @@
     .ben { grid-template-columns: 48px 1fr; padding: 28px 0; gap: 14px; }
     .ben h4 { font-size: clamp(22px, 5.5vw, 36px); }
 
-    /* Feature cards */
+    /* Feature cards — show CTA on its own line below description */
     .feat-body h4 { font-size: 15px; }
     .feat-body p { font-size: 13px; }
+    .feat-cta { display: block; margin: 8px 0 0; font-size: 9px; letter-spacing: 0.16em; }
+    .feature { border-bottom: 1px solid var(--line); }
 
     /* About */
     .about .photo { aspect-ratio: 3 / 2; }
