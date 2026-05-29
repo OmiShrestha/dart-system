@@ -1368,8 +1368,8 @@
     .feat-cta { display: block; margin: 8px 0 0; font-size: 9px; letter-spacing: 0.16em; }
     .feature { border-bottom: 1px solid var(--line); }
 
-    /* About */
-    .about .photo { aspect-ratio: 3 / 2; }
+    /* About — keep portrait ratio, cap height so it doesn't fill the whole screen */
+    .about .photo { aspect-ratio: auto; height: 420px; }
 
     /* Footer big */
     footer .big { font-size: clamp(34px, 11vw, 72px); }
