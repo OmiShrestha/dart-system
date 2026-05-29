@@ -1245,6 +1245,69 @@
   }
   .feature:hover .feat-cta { opacity: 1; }
 
+  /* Extended LED colors — RGBW palette */
+  .led-blue { background:#4080e0; box-shadow:0 0 10px 3px rgba(64,128,224,.9),0 0 22px 8px rgba(64,128,224,.4); }
+  .led-aqua { background:#00d4cc; box-shadow:0 0 10px 3px rgba(0,212,204,.9),0 0 22px 8px rgba(0,212,204,.4); }
+  .led-magenta { background:#d040c0; box-shadow:0 0 10px 3px rgba(208,64,192,.9),0 0 22px 8px rgba(208,64,192,.4); }
+  .led-yellow { background:#d4bf20; box-shadow:0 0 10px 3px rgba(212,191,32,.9),0 0 22px 8px rgba(212,191,32,.4); }
+  .led-infrared { background:#5c1212; box-shadow:0 0 10px 3px rgba(92,18,18,.7),0 0 22px 8px rgba(92,18,18,.3); }
+  .led-thermal { background:#e06b20; box-shadow:0 0 10px 3px rgba(224,107,32,.9),0 0 22px 8px rgba(224,107,32,.4); }
+  /* RGBW palette grid */
+  .rgbw-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .rgbw-swatch { display:flex; flex-direction:column; align-items:center; gap:8px; padding:14px 8px; border:1px solid var(--line); }
+  .rgbw-swatch .led-circle { width:28px; height:28px; }
+  .rgbw-label { font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-3); text-align:center; line-height:1.4; }
+  /* Node type comparison */
+  .node-compare { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .node-col { border:1px solid var(--line); overflow:hidden; }
+  .node-col-head { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--fg); font-weight:600; padding:12px 14px; background:rgba(255,90,31,.05); border-bottom:1px solid var(--line); }
+  .node-col-id { font-family:var(--mono); font-size:8px; letter-spacing:.1em; color:var(--accent); padding:8px 14px 10px; }
+  .node-feat { display:flex; justify-content:space-between; align-items:center; padding:8px 14px; border-bottom:1px solid var(--line-2); gap:12px; font-family:var(--mono); font-size:9px; }
+  .node-feat:last-child { border-bottom:none; }
+  .node-feat-name { color:var(--fg-2); }
+  .node-feat-yes { color:var(--accent); }
+  .node-feat-no { color:var(--fg-3); opacity:.4; }
+  /* Power readout */
+  .pwr-readout { display:flex; flex-direction:column; }
+  .pwr-row { display:grid; grid-template-columns:100px 1fr 64px; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--line-2); }
+  .pwr-row:first-child { border-top:1px solid var(--line-2); }
+  .pwr-key { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--fg-3); }
+  .pwr-bar-track { height:4px; background:var(--line); border-radius:2px; overflow:hidden; }
+  .pwr-bar-fill { height:100%; border-radius:2px; background:var(--accent); }
+  .pwr-val { font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--fg); text-align:right; font-variant-numeric:tabular-nums; }
+  .odo-block { margin-top:14px; border:1px solid var(--line); }
+  .odo-head { font-family:var(--mono); font-size:8px; letter-spacing:.16em; text-transform:uppercase; color:var(--fg-3); padding:10px 14px; border-bottom:1px solid var(--line-2); }
+  .odo-row { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line-2); }
+  .odo-row:last-child { border-bottom:none; }
+  .odo-dir { font-family:var(--mono); font-size:9px; letter-spacing:.1em; color:var(--fg-2); }
+  .odo-count { font-family:var(--mono); font-size:17px; letter-spacing:.12em; color:var(--accent); font-variant-numeric:tabular-nums; }
+  .odo-note { font-family:var(--display); font-size:10.5px; color:var(--fg-3); padding:8px 14px 10px; line-height:1.5; }
+  /* GATT services */
+  .gatt-services { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .gatt-svc { border:1px solid var(--line); }
+  .gatt-svc-head { font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding:12px 14px; border-bottom:1px solid var(--line-2); background:rgba(255,90,31,.05); }
+  .gatt-svc-full { font-family:var(--display); font-size:11px; color:var(--fg-3); line-height:1.4; padding:8px 14px; border-bottom:1px solid var(--line-2); }
+  .gatt-attr { display:flex; justify-content:space-between; align-items:baseline; padding:7px 14px; border-bottom:1px solid var(--line-2); gap:8px; }
+  .gatt-attr:last-child { border-bottom:none; }
+  .gatt-attr-name { font-family:var(--mono); font-size:9px; letter-spacing:.08em; color:var(--fg-2); }
+  .gatt-attr-perm { font-family:var(--mono); font-size:8px; letter-spacing:.06em; color:var(--fg-3); white-space:nowrap; }
+  /* Command engine terminal */
+  .cmd-term { background:#0a0a0c; border:1px solid rgba(255,255,255,.06); border-radius:4px; padding:16px 18px; display:flex; flex-direction:column; }
+  .cmd-prompt { font-family:var(--mono); font-size:11.5px; line-height:2.1; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+  .cmd-p { color:rgba(255,255,255,.25); }
+  .cmd-txt { color:#4ade80; }
+  .cmd-cmt { color:rgba(255,255,255,.2); font-size:10px; }
+  .cmd-divider { border-top:1px solid rgba(255,255,255,.06); margin:8px 0; }
+  /* RSSI signal list */
+  .rssi-list { display:flex; flex-direction:column; }
+  .rssi-row { display:grid; grid-template-columns:110px 1fr 60px; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid var(--line-2); }
+  .rssi-row:first-child { border-top:1px solid var(--line-2); }
+  .rssi-node { font-family:var(--mono); font-size:9px; letter-spacing:.1em; color:var(--fg); }
+  .rssi-node span { display:block; font-size:8px; color:var(--fg-3); margin-top:3px; letter-spacing:.08em; }
+  .rssi-bar-track { height:4px; background:var(--line); border-radius:2px; overflow:hidden; }
+  .rssi-bar-fill { height:100%; border-radius:2px; }
+  .rssi-val { font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--fg-3); text-align:right; font-variant-numeric:tabular-nums; }
+
   /* small screens */
   @media (max-width: 980px) {
     .nav ul { display: none; }

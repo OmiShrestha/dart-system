@@ -266,6 +266,60 @@
         </div>
         <div class="feat-tag">RTOS · OTA · HAL</div>
       </div>
+
+      <div class="feature reveal delay-1" style="cursor:pointer;" onclick="document.getElementById('repeater-modal').classList.add('open')">
+        <div class="feat-num">VIII. </div>
+        <div class="feat-body">
+          <h4>Repeater Node Mode <span class="feat-cta">↗ See node roles</span></h4>
+          <p>The same firmware binary runs as a pure BLE mesh relay — no motor, no sensor. Repeater nodes (RPTR-XXXXXXXX) extend RF coverage into dead zones without adding target hardware. Not every node in the network is a target.</p>
+        </div>
+        <div class="feat-tag">Relay · Range Extension · Kconfig</div>
+      </div>
+
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('power-modal').classList.add('open')">
+        <div class="feat-num">IX. </div>
+        <div class="feat-body">
+          <h4>Power Monitoring & Motor Odometer <span class="feat-cta">↗ See readout</span></h4>
+          <p>ADC-based voltage and current monitoring with 200-sample averaging. A flash-backed motor cycle counter tracks cumulative raise/lower operations across reboots and field deployments.</p>
+        </div>
+        <div class="feat-tag">ADC · Battery · Flash Odometer</div>
+      </div>
+
+      <div class="feature reveal delay-1" style="cursor:pointer;" onclick="document.getElementById('rgbw-modal').classList.add('open')">
+        <div class="feat-num">X. </div>
+        <div class="feat-body">
+          <h4>Full RGBW COB LED Palette <span class="feat-cta">↗ See all colors</span></h4>
+          <p>16+ individually addressable color combinations on the COB LEDs — red, green, blue, white, aqua, magenta, yellow, infrared, thermal. Only three of those states appear during a standard drill.</p>
+        </div>
+        <div class="feat-tag">RGBW · COB · 16+ Colors</div>
+      </div>
+
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('gatt-modal').classList.add('open')">
+        <div class="feat-num">XI. </div>
+        <div class="feat-body">
+          <h4>Direct BLE — LBS &amp; NUS <span class="feat-cta">↗ See services</span></h4>
+          <p>Light Button Service and Nordic UART Service run alongside the mesh stack — direct GATT connections for LED control, button state, and a raw UART pipe. Two RF protocols on one radio.</p>
+        </div>
+        <div class="feat-tag">GATT · LBS · NUS · Dual-Path</div>
+      </div>
+
+      <div class="feature reveal delay-1" style="cursor:pointer;" onclick="document.getElementById('cmd-modal').classList.add('open')">
+        <div class="feat-num">XII. </div>
+        <div class="feat-body">
+          <h4>Runtime Command &amp; Schedule Engine <span class="feat-cta">↗ See commands</span></h4>
+          <p>Targets accept ASCII schedule commands over BLE — operators build and execute event sequences at runtime. This is the actual drill engine, more programmable than any fixed UI implies.</p>
+        </div>
+        <div class="feat-tag">Commands · Runtime · BLE UART</div>
+      </div>
+
+      <div class="feature reveal" style="cursor:pointer;" onclick="document.getElementById('rssi-modal').classList.add('open')">
+        <div class="feat-num">XIII. </div>
+        <div class="feat-body">
+          <h4>Neighbor RSSI Scanning <span class="feat-cta">↗ See signal map</span></h4>
+          <p>Each node passively scans for nearby DART nodes and measures their signal strength — giving the system live range and topology awareness for relay path selection and coverage assessment.</p>
+        </div>
+        <div class="feat-tag">RSSI · Passive Scan · Topology</div>
+      </div>
     </div>
   </div>
 </section>
@@ -515,7 +569,7 @@
     <div class="modal-header">
       <div class="modal-eyebrow">LED Feedback States</div>
       <h3 class="modal-title">THE TARGET TELLS YOU WHAT HAPPENED</h3>
-      <div class="modal-sub">3 states · instant feedback · no coach required</div>
+      <div class="modal-sub">3 drill states · RGBW-backed · 16+ colors available</div>
     </div>
 
     <div class="modal-sequence">
@@ -796,6 +850,284 @@
   </div>
 </div>
 
+<!-- ============== REPEATER MODAL ============== -->
+<div id="repeater-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('repeater-modal').classList.remove('open')" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">Node Architecture</div>
+      <h3 class="modal-title">ONE BINARY — TWO NODE ROLES</h3>
+      <div class="modal-sub">CONFIG_DART_REPEATER_NODE · RPTR-XXXXXXXX · pure relay · no target hardware</div>
+    </div>
+    <div class="modal-sequence">
+      <div class="node-compare">
+        <div class="node-col">
+          <div class="node-col-head">Target Node</div>
+          <div class="node-col-id">DART-XXXXXXXX</div>
+          <div class="node-feat"><span class="node-feat-name">BLE Mesh relay</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">DC motor</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">Magnetic hit sensor</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">COB LED array</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">Position sensors</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">ADC monitoring</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">Drill engine</span><span class="node-feat-yes">✓</span></div>
+        </div>
+        <div class="node-col">
+          <div class="node-col-head">Repeater Node</div>
+          <div class="node-col-id">RPTR-XXXXXXXX</div>
+          <div class="node-feat"><span class="node-feat-name">BLE Mesh relay</span><span class="node-feat-yes">✓</span></div>
+          <div class="node-feat"><span class="node-feat-name">DC motor</span><span class="node-feat-no">—</span></div>
+          <div class="node-feat"><span class="node-feat-name">Magnetic hit sensor</span><span class="node-feat-no">—</span></div>
+          <div class="node-feat"><span class="node-feat-name">COB LED array</span><span class="node-feat-no">—</span></div>
+          <div class="node-feat"><span class="node-feat-name">Position sensors</span><span class="node-feat-no">—</span></div>
+          <div class="node-feat"><span class="node-feat-name">ADC monitoring</span><span class="node-feat-no">—</span></div>
+          <div class="node-feat"><span class="node-feat-name">Drill engine</span><span class="node-feat-no">—</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="modal-summary">One firmware image, one Kconfig flag. Set CONFIG_DART_REPEATER_NODE and the node skips motor init, sensor polling, and LED handling — becoming a pure BLE Mesh relay that extends RF coverage into structures and hard-to-reach positions without adding target hardware cost.</p>
+    <div class="modal-tags">
+      <span>BLE Mesh</span><span>Pure Relay</span><span>Kconfig</span><span>Range Extension</span><span>Utility I/O</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== POWER MODAL ============== -->
+<div id="power-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('power-modal').classList.remove('open')" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">Node Telemetry</div>
+      <h3 class="modal-title">POWER MONITORING & MOTOR ODOMETER</h3>
+      <div class="modal-sub">200-sample ADC averaging · flash-backed cycle counter · survives reboots</div>
+    </div>
+    <div class="modal-sequence">
+      <div class="pwr-readout">
+        <div class="pwr-row">
+          <span class="pwr-key">Voltage</span>
+          <div class="pwr-bar-track"><div class="pwr-bar-fill" style="width:78%"></div></div>
+          <span class="pwr-val">12.4 V</span>
+        </div>
+        <div class="pwr-row">
+          <span class="pwr-key">Current</span>
+          <div class="pwr-bar-track"><div class="pwr-bar-fill" style="width:32%"></div></div>
+          <span class="pwr-val">1.2 A</span>
+        </div>
+        <div class="pwr-row">
+          <span class="pwr-key">Avg samples</span>
+          <div class="pwr-bar-track"><div class="pwr-bar-fill" style="width:100%"></div></div>
+          <span class="pwr-val">200</span>
+        </div>
+      </div>
+      <div class="odo-block">
+        <div class="odo-head">Motor Odometer — Flash-Backed (NVS)</div>
+        <div class="odo-row">
+          <span class="odo-dir">↑ RAISE cycles</span>
+          <span class="odo-count">04 73</span>
+        </div>
+        <div class="odo-row">
+          <span class="odo-dir">↓ LOWER cycles</span>
+          <span class="odo-count">04 73</span>
+        </div>
+        <div class="odo-note">Written to NVS flash on every cycle. Persists through power loss and firmware updates.</div>
+      </div>
+    </div>
+    <p class="modal-summary">Battery health and motor wear are two critical field metrics. The 200-sample ADC averaging smooths transient load spikes from motor start; the flash-backed odometer means cumulative wear data outlasts any individual session or power cycle.</p>
+    <div class="modal-tags">
+      <span>ADC</span><span>Battery Health</span><span>Flash / NVS</span><span>Motor Odometer</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== RGBW MODAL ============== -->
+<div id="rgbw-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('rgbw-modal').classList.remove('open')" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">COB LED Palette</div>
+      <h3 class="modal-title">FULL RGBW — 16+ COLOR COMBINATIONS</h3>
+      <div class="modal-sub">individually addressable · cob_leds.c · beyond the three drill states</div>
+    </div>
+    <div class="modal-sequence">
+      <div class="rgbw-grid">
+        <div class="rgbw-swatch">
+          <div class="led-circle led-red"></div>
+          <div class="rgbw-label">Red</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-green"></div>
+          <div class="rgbw-label">Green</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-blue"></div>
+          <div class="rgbw-label">Blue</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-white"></div>
+          <div class="rgbw-label">White</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-aqua"></div>
+          <div class="rgbw-label">Aqua</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-magenta"></div>
+          <div class="rgbw-label">Magenta</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-yellow"></div>
+          <div class="rgbw-label">Yellow</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-infrared"></div>
+          <div class="rgbw-label">Infrared<br>850 nm</div>
+        </div>
+        <div class="rgbw-swatch">
+          <div class="led-circle led-thermal"></div>
+          <div class="rgbw-label">Thermal</div>
+        </div>
+      </div>
+    </div>
+    <p class="modal-summary">Each color maps to a discrete firmware state or operator command. The drill system uses three — armed (white), hit (green), miss (red). The remaining palette covers special modes, target identification, diagnostics, and future operator scenarios without a firmware change.</p>
+    <div class="modal-tags">
+      <span>RGBW</span><span>COB LED</span><span>16+ States</span><span>Individually Addressable</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== GATT MODAL ============== -->
+<div id="gatt-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('gatt-modal').classList.remove('open')" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">BLE Connectivity</div>
+      <h3 class="modal-title">DIRECT BLE — LBS &amp; NUS ALONGSIDE MESH</h3>
+      <div class="modal-sub">Light Button Service · Nordic UART Service · two RF paths · one radio</div>
+    </div>
+    <div class="modal-sequence">
+      <div class="gatt-services">
+        <div class="gatt-svc">
+          <div class="gatt-svc-head">LBS</div>
+          <div class="gatt-svc-full">Light Button Service</div>
+          <div class="gatt-attr">
+            <span class="gatt-attr-name">LED state</span>
+            <span class="gatt-attr-perm">Write (no resp)</span>
+          </div>
+          <div class="gatt-attr">
+            <span class="gatt-attr-name">Button state</span>
+            <span class="gatt-attr-perm">Read · Notify</span>
+          </div>
+          <div class="gatt-attr">
+            <span class="gatt-attr-name">Direct node control</span>
+            <span class="gatt-attr-perm">No provisioner</span>
+          </div>
+        </div>
+        <div class="gatt-svc">
+          <div class="gatt-svc-head">NUS</div>
+          <div class="gatt-svc-full">Nordic UART Service</div>
+          <div class="gatt-attr">
+            <span class="gatt-attr-name">RX characteristic</span>
+            <span class="gatt-attr-perm">Write</span>
+          </div>
+          <div class="gatt-attr">
+            <span class="gatt-attr-name">TX characteristic</span>
+            <span class="gatt-attr-perm">Notify</span>
+          </div>
+          <div class="gatt-attr">
+            <span class="gatt-attr-name">Protocol</span>
+            <span class="gatt-attr-perm">Raw UART over BLE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="modal-summary">BLE Mesh and GATT run simultaneously on the same nRF52840 radio. Mesh handles range-wide orchestration at TTL 10; LBS and NUS enable direct per-node connections for diagnostics, configuration, and raw command injection — without routing through the provisioner.</p>
+    <div class="modal-tags">
+      <span>BLE GATT</span><span>LBS</span><span>NUS</span><span>Direct Connection</span><span>Dual-Path</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== COMMAND ENGINE MODAL ============== -->
+<div id="cmd-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('cmd-modal').classList.remove('open')" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">Drill Engine</div>
+      <h3 class="modal-title">RUNTIME COMMAND &amp; SCHEDULE ENGINE</h3>
+      <div class="modal-sub">ASCII commands over BLE · build sequences at runtime · operator-programmable</div>
+    </div>
+    <div class="modal-sequence">
+      <div class="cmd-term">
+        <div class="cmd-prompt">
+          <span class="cmd-p">NUS&gt;</span>
+          <span class="cmd-txt">T3 x</span>
+          <span class="cmd-cmt">// raise target 3, execute immediately</span>
+        </div>
+        <div class="cmd-prompt">
+          <span class="cmd-p">NUS&gt;</span>
+          <span class="cmd-txt">T1 T4 x</span>
+          <span class="cmd-cmt">// raise targets 1 and 4 simultaneously</span>
+        </div>
+        <div class="cmd-prompt">
+          <span class="cmd-p">NUS&gt;</span>
+          <span class="cmd-txt">T2 XET 3000 x</span>
+          <span class="cmd-cmt">// expose T2 for 3000 ms, then drop</span>
+        </div>
+        <div class="cmd-divider"></div>
+        <div class="cmd-prompt">
+          <span class="cmd-p">NUS&gt;</span>
+          <span class="cmd-txt">T1 XET 2000 T3 XET 1500 T5 x</span>
+          <span class="cmd-cmt">// full drill, one line</span>
+        </div>
+      </div>
+    </div>
+    <p class="modal-summary">Commands arrive as ASCII strings over the Nordic UART Service. The schedule engine parses and queues them into ordered event sequences — target select, exposure timer, execute. An operator can build any drill at the command line without touching the UI or reflashing firmware.</p>
+    <div class="modal-tags">
+      <span>ASCII Commands</span><span>NUS</span><span>Schedule Engine</span><span>Runtime</span><span>Operator</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============== RSSI MODAL ============== -->
+<div id="rssi-modal" class="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('rssi-modal').classList.remove('open')" aria-label="Close">✕</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow">Topology Awareness</div>
+      <h3 class="modal-title">NEIGHBOR RSSI SCANNING</h3>
+      <div class="modal-sub">passive scan · per-node signal strength · relay path &amp; range awareness</div>
+    </div>
+    <div class="modal-sequence">
+      <div class="rssi-list">
+        <div class="rssi-row">
+          <div class="rssi-node">DART-A27F<span>Target Node</span></div>
+          <div class="rssi-bar-track"><div class="rssi-bar-fill" style="width:88%;background:var(--accent)"></div></div>
+          <div class="rssi-val">−58 dBm</div>
+        </div>
+        <div class="rssi-row">
+          <div class="rssi-node">RPTR-3C12<span>Repeater Node</span></div>
+          <div class="rssi-bar-track"><div class="rssi-bar-fill" style="width:68%;background:var(--accent)"></div></div>
+          <div class="rssi-val">−71 dBm</div>
+        </div>
+        <div class="rssi-row">
+          <div class="rssi-node">DART-8B04<span>Target Node</span></div>
+          <div class="rssi-bar-track"><div class="rssi-bar-fill" style="width:44%;background:#d4bf20"></div></div>
+          <div class="rssi-val">−82 dBm</div>
+        </div>
+        <div class="rssi-row">
+          <div class="rssi-node">DART-F19A<span>Target Node</span></div>
+          <div class="rssi-bar-track"><div class="rssi-bar-fill" style="width:22%;background:#e04040"></div></div>
+          <div class="rssi-val">−94 dBm</div>
+        </div>
+      </div>
+    </div>
+    <p class="modal-summary">Each node passively scans for advertising DART devices and records their signal strength — no active probing, no added traffic. The result is a live signal map the firmware uses for relay path selection and range diagnostics, with no manual configuration required.</p>
+    <div class="modal-tags">
+      <span>RSSI</span><span>Passive Scanning</span><span>Topology</span><span>Relay Awareness</span>
+    </div>
+  </div>
+</div>
+
 <!-- ============== SCRIPTS ============== -->
 <script src="js/vendor/react.development.js"></script>
 <script src="js/vendor/react-dom.development.js"></script>
@@ -809,7 +1141,7 @@
 <!-- Scroll restoration on reload -->
 <script>
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') ['drills-modal','range-modal','led-modal','hw-modal','console-modal','deploy-modal','fw-modal'].forEach(function(id){ document.getElementById(id).classList.remove('open'); });
+    if (e.key === 'Escape') ['drills-modal','range-modal','led-modal','hw-modal','console-modal','deploy-modal','fw-modal','repeater-modal','power-modal','rgbw-modal','gatt-modal','cmd-modal','rssi-modal'].forEach(function(id){ document.getElementById(id).classList.remove('open'); });
   });
   window.addEventListener('load', function() {
     if (window.location.hash) {
